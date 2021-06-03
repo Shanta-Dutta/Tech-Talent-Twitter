@@ -1,8 +1,11 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
-<!--  <head th:include="fragments/head">-->
+
 <head>
-    <title>Tags</title>
+
+    <title id="title">Feed</title>
+
+    <!--   <div th:replace="/fragments/headlinks :: head-styles" ></div>-->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -11,13 +14,26 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="/custom.js"></script>
+
 </head>
 <body>
+
+<div th:replace="fragments/navbar"></div>
 <div class="container">
-    <div th:replace="fragments/navbar"></div>
-    <h2>Tags</h2>
-    <div class="list-group" th:each="tag:${tagList}">
-        <a class="username" th:href="@{/tweets/} + ${tag.phrase}"><span th:text="${tag.phrase}"></span></a>
+    <!--            <h2>Tweets containing #<span th:text="${tag}"></span></h2>-->
+    <div class="list-group" th:each="tweet:${tweetList}">
+        <div class="list-group-item list-group-item-action">
+            <div class="d-flex w-100 justify-content-between">
+                <a class="username" th:href="@{/users/} + ${tweet.user.username}">
+                    <span th:text="${tweet.user.username}"></span></a>
+                <small th:text="${tweet.date}"></small>
+                <!-- <small> <span th:text="${#dates.format(tweet.createdAt, 'M/d/yy')}"></span></small> -->
+            </div>
+            <p class="mb-1" th:utext="${tweet.message}"></p>
+        </div>
+    </div>
+    <div th:if="${#lists.isEmpty(tweetList)}">
+        <h3>No tweets contain this hashtag</h3>
     </div>
 </div>
 </body>

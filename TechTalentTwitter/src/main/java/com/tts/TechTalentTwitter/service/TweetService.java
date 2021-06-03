@@ -106,12 +106,13 @@ public class TweetService {
                 String shortenedLink = link;
                 if (link.length() > 23) {
                     shortenedLink = link.substring(0, 20) + "...";
-                    message = message.replace(link,
-                            "<a class=\"tag\" href=\"" + link + "\" target=\"_blank\">" + shortenedLink + "</a>");
-                }
-                tweet.setMessage(message);
-            }
 
+                }
+                message = message.replace(link,
+                        "<a class=\"tag\" href=\"" + link + "\" target=\"_blank\">" + shortenedLink + "</a>");
+
+            }
+            tweet.setMessage(message);
         }
     }
     private List<TweetDisplay> formatTimestamps(List<Tweet> tweets) {
@@ -135,6 +136,9 @@ public class TweetService {
         }
         return response;
     }
+
+
+
 
 
 }

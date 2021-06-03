@@ -33,16 +33,9 @@ public class TweetController {
 
     @Autowired
     private TagRepository tagRepository;
-    //
-//    @GetMapping(value= {"/tweets", "/"})
-//    public String getFeed(Model model){
-//        List<TweetDisplay> tweets = tweetService.findAll();
-//        model.addAttribute("tweetList", tweets);
-//        return "feed";
-//    }
-//
-//
-    @GetMapping(value = { "/tweets", "/" })
+
+
+  @GetMapping(value = { "/tweets", "/" })
     public String getFeed(@RequestParam(value = "filter", required = false) String filter, Model model) {
         User loggedInUser = userService.getLoggedInUser();
         List<TweetDisplay> tweets = new ArrayList<>();

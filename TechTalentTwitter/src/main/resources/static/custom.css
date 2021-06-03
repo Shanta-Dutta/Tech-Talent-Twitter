@@ -5,3 +5,51 @@
     a.tag {
         color: #0084b4
     }
+
+body{
+        background: url(images/backgroundpic.jpg) no-repeat center center fixed;
+        background-size:cover;
+
+    }
+
+.container{
+
+  /*
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  */
+
+
+}
+
+form{
+display: inline-block;
+        width: 300px;
+        margin: 5px;
+        text-align: center;
+
+}
+input {
+        display: inline-block;
+        margin-right: 190px;
+    }
+
+    button {
+        padding: 10px;
+        margin: 10px;
+        align:left:
+
+    }
+
+.log{
+    margin-left: -5px;
+    padding:8px;
+   }
+    .sign{
+
+    margin-left: 49%;
+    margin-top: -64px;
+    padding:10px;
+       }

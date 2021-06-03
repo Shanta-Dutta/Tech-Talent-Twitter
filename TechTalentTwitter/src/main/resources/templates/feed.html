@@ -12,14 +12,17 @@
 </head>
 
 <body>
+<div th:replace="fragments/navbar"></div>
 <div class="container">
-  <div th:replace="fragments/navbar"></div>
+
   <h2>Tweets</h2>
   <ul class="nav nav-tabs">
     <li role="presentation" th:classappend="${filter == 'all' ? 'active' : '' }">
       <a href="/tweets">All</a></li>
     <li role="presentation" th:classappend="${filter == 'following' ? 'active' : '' }">
       <a href="/tweets?filter=following">Following</a></li>
+    <li role="presentation" th:classappend="${filter == 'followers' ? 'active' : '' }">
+      <a href="/users?filter=followers">Followers</a></li>
   </ul><br/>
   <div th:each="tweet:${tweetList}"> <!-- Thymeleaf loop 24-32 ; in this line Tweetlist is representing the list but in Ecommerce project i named as p -->
     <h5><span th:text="${tweet.user.username}"></span><!-- "${product.name}" -->

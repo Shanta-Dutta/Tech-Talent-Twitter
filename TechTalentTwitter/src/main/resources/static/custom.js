@@ -1,3 +1,6 @@
+
+//when we are hovering over Follow button, we see the Unfollow button in red.
+//This happens because of this block of code.
 $(document).ready(function() {
   $('.unfollow_btn').hover(function(){
     $(this).removeClass('btn-primary');

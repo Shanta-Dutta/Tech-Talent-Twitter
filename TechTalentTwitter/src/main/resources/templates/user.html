@@ -63,6 +63,7 @@
 </form>
 <form th:action="@{/unfollow/} + ${user.username}" th:if="${following}" method="post">
     <button style="float:right" type="Submit" class="btn btn-lg btn-primary unfollow_btn">Following</button>
+
 </form>
 </div>
 </body>

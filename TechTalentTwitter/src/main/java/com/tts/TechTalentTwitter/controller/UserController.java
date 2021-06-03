@@ -48,21 +48,10 @@ public class UserController {
         return "user";
     }
 
-//	@GetMapping(value = "/users")
-//	public String getUsers(Model model) {
-//		List<User> users = userService.findAll();
-//		User loggedInUser = userService.getLoggedInUser();
-//		List<User> usersFollowing = loggedInUser.getFollowing();
-//		SetFollowingStatus(users, usersFollowing, model);
-//		model.addAttribute("users", users);
-//		SetTweetCounts(users, model);
-//
-//		return "users";
-//	}
 
     @GetMapping(value = "/users")
     public String getUsers(@RequestParam(value = "filter", required = false) String filter, Model model) {
-        List<User> users = new ArrayList<User>();
+        List<User> users = new ArrayList<>();
 
         User loggedInUser = userService.getLoggedInUser();
 
